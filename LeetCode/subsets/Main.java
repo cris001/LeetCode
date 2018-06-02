@@ -17,6 +17,7 @@ If S =[1,2,3], a solution is:
   [1,2],
   []
 ]
+
 import java.util.*;
 public class Solution {
     public ArrayList<ArrayList<Integer>> subsets(int[] S) {
@@ -52,8 +53,7 @@ public class Solution {
                 }
                 return 0;
             }
-        });
-        
+        });    
         return ret;
     }
 }
