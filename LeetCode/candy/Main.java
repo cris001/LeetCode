@@ -5,6 +5,7 @@ You are giving candies to these children subjected to the following requirements
 Each child must have at least one candy.
 Children with a higher rating get more candies than their neighbors.
 What is the minimum candies you must give?
+
 public class Solution {
     public int candy(int[] ratings) {
         if (ratings == null || ratings.length == 0){
