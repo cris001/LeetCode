@@ -11,6 +11,7 @@ If n = 4 and k = 2, a solution is:
   [1,3],
   [1,4],
 ]
+
 import java.util.*;
 public class Solution {
     public ArrayList<ArrayList<Integer>> combine(int n, int k) {
