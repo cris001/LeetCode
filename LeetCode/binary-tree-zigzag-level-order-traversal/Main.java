@@ -15,6 +15,7 @@ return its zigzag level order traversal as:
   [20,9],
   [15,7]
 ]
+
 import java.util.*;
 public class Solution {
     public ArrayList<ArrayList<Integer>> zigzagLevelOrder(TreeNode root) {
