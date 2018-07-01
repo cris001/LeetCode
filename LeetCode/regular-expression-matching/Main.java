@@ -17,38 +17,48 @@ isMatch("aa", "a*") → true
 isMatch("aa", ".*") → true
 isMatch("ab", ".*") → true
 isMatch("aab", "c*a*b") → true
+
 public class Solution {
     public boolean isMatch(String s, String p) {
         if (s == null && p == null){
             return true;
         }
-        if (s == null || p == null){
-            return false;
-        }
         int n = s.length();
         int m = p.length();
+        if (n == 0 && m == 0){
+            return true;
+        }
+
         boolean f[][] = new boolean[n+1][m+1];
         f[0][0] = true;
-        for(int i = 0;i<m;i++){
-            if (p.charAt(i) == '*'){
-                f[0][i+1] = f[0][i-1] ; 
+        if (m>=1){
+            if (p.charAt(0) == '*'){
+                f[0][1] = true;
+            }else{
+                f[0][1] = false;
             }
         }
+        for(int i = 1;i<m;i++){
+            if (p.charAt(i) == '*'){
+                f[0][i+1] = f[0][i] || f[0][i-1];
+            }
+        }
+        
         for(int i = 1;i<=n;i++){
             for(int j = 1;j<=m;j++){
                 if (s.charAt(i-1) == p.charAt(j-1) || p.charAt(j-1) == '.'){
-                    f[i][j] = f[i-1][j-1]; 
-                }
-                if (p.charAt(j-1) == '*'){
+                    f[i][j] = f[i-1][j-1];
+                }else if (p.charAt(j-1) == '*'){
                     if (j>=2 && s.charAt(i-1) != p.charAt(j-2) && p.charAt(j-2) != '.'){
                         f[i][j] = f[i][j-2];
                     }else{
-                        f[i][j] = f[i][j-1] || f[i][j-2] || f[i-1][j]; 
+                        f[i][j] = f[i][j-1] || f[i][j-2] || f[i-1][j];
                     }
-                    
                 }
             }
         }
+        
         return f[n][m];
+        
     }
 }
