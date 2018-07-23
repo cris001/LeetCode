@@ -1,6 +1,6 @@
 题目描述
-
 Given two sorted integer arrays A and B, merge B into A as one sorted array.
+
 public class Solution {
     public void merge(int A[], int m, int B[], int n) {
         int index = m + n - 1;
