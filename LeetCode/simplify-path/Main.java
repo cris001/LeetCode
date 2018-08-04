@@ -4,6 +4,7 @@ For example,
 path ="/home/", =>"/home"
 path ="/a/./b/../../c/", =>"/c"
 click to show corner cases.
+
 import java.util.*;
 public class Solution {
     public String simplifyPath(String path) {
